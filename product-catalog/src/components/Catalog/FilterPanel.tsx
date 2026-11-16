@@ -8,14 +8,16 @@ import type { ProductSortField } from '../../types/api';
 
 const SORT_OPTIONS = [
   { label: 'По умолчанию', value: '' },
-  { label: 'По цене', value: 'price' },
-  { label: 'По названию', value: 'title' },
-  { label: 'По рейтингу', value: 'rating' },
-  { label: 'По размеру скидки', value: 'discountPercentage' },
+  { label: 'Сначала дешевле (цена ↑)', value: 'price-asc' },
+  { label: 'Сначала дороже (цена ↓)', value: 'price-desc' },
+  { label: 'По размеру скидки', value: 'discountPercentage-desc' },
+  { label: 'По рейтингу', value: 'rating-desc' },
+  { label: 'По названию (А — Я)', value: 'title-asc' },
+  { label: 'По названию (Я — А)', value: 'title-desc' },
 ];
 
 export const FilterPanel: React.FC = () => {
-  const { filters, setFilter, resetFilters, hasActiveFilters } = useCatalogFilters();
+  const { filters, setFilter, setFilters, resetFilters, hasActiveFilters } = useCatalogFilters();
   const { data: categories = [], isLoading: isLoadingCategories } = useGetCategoriesQuery();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -35,12 +37,22 @@ export const FilterPanel: React.FC = () => {
     setFilter('category', e.target.value);
   };
 
-  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilter('sortBy', e.target.value as ProductSortField | '');
-  };
+  // Current combined sort value
+  const currentSortValue = filters.sortBy
+    ? `${filters.sortBy}-${filters.order || 'asc'}`
+    : '';
 
-  const toggleSortOrder = () => {
-    setFilter('order', filters.order === 'asc' ? 'desc' : 'asc');
+  const handleUnifiedSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const val = e.target.value;
+    if (!val) {
+      setFilters({ sortBy: '', order: 'asc' });
+      return;
+    }
+    const [field, order] = val.split('-');
+    setFilters({
+      sortBy: field as ProductSortField,
+      order: (order === 'desc' ? 'desc' : 'asc') as 'asc' | 'desc',
+    });
   };
 
   const handleDateAfterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,35 +83,12 @@ export const FilterPanel: React.FC = () => {
       {/* Sorting */}
       <div className={styles.section}>
         <span className={styles.sectionTitle}>Сортировка</span>
-        <div className={styles.sortGrid}>
-          <Select
-            value={filters.sortBy}
-            onChange={handleSortChange}
-            options={SORT_OPTIONS}
-            fullWidth
-          />
-          {filters.sortBy && (
-            <button
-              type="button"
-              className={styles.orderToggleBtn}
-              onClick={toggleSortOrder}
-              title={filters.order === 'asc' ? 'По возрастанию' : 'По убыванию'}
-              aria-label={filters.order === 'asc' ? 'По возрастанию' : 'По убыванию'}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                style={{
-                  transform: filters.order === 'desc' ? 'rotate(180deg)' : 'none',
-                }}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v10.5" />
-              </svg>
-            </button>
-          )}
-        </div>
+        <Select
+          value={currentSortValue}
+          onChange={handleUnifiedSortChange}
+          options={SORT_OPTIONS}
+          fullWidth
+        />
       </div>
 
       {/* Date filters */}

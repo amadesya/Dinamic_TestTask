@@ -5,8 +5,7 @@
   position: sticky;
   top: 0;
   z-index: $z-sticky;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
+  background-color: $color-bg-surface;
   border-bottom: 1px solid $color-border;
 }
 
@@ -14,7 +13,7 @@
   max-width: $container-max-width;
   margin: 0 auto;
   padding: 0 $spacing-2xl;
-  height: 60px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,43 +21,49 @@
 
   @include tablet-down {
     padding: 0 $spacing-lg;
+    height: 58px;
   }
 
   @include mobile {
     padding: 0 $spacing-md;
-    height: 54px;
+    height: 52px;
   }
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: $spacing-xs;
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bold;
-  letter-spacing: $letter-spacing-tight;
-  color: $color-text-primary;
+  gap: $spacing-sm;
   text-decoration: none;
+  color: $color-text-primary;
   transition: opacity $transition-fast;
 
   &:hover {
     opacity: 0.8;
   }
 
-  svg {
-    width: 22px;
-    height: 22px;
-    color: $color-primary;
-  }
+  @include focus-ring;
+}
 
-  @include mobile {
-    font-size: $font-size-base;
+.logoMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background-color: $color-primary;
+  color: $color-text-white;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0;
+  border-radius: $radius-xs;
+}
 
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-  }
+.logoText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .nav {
@@ -68,27 +73,25 @@
 }
 
 .navLink {
-  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: $spacing-xs;
   padding: $spacing-xs $spacing-md;
   border-radius: $radius-sm;
   color: $color-text-secondary;
   font-weight: $font-weight-medium;
   font-size: $font-size-sm;
-  transition: all $transition-fast;
+  transition: color $transition-fast;
 
   &:hover {
     color: $color-text-primary;
-    background-color: $color-bg-secondary;
   }
 
   &.active {
     color: $color-text-primary;
-    background-color: $color-bg-secondary;
     font-weight: $font-weight-semibold;
   }
+
+  @include focus-ring;
 }
 
 .favoritesButton {
@@ -96,33 +99,30 @@
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  padding: $spacing-xs $spacing-md;
-  border-radius: $radius-full;
-  background-color: $color-bg-surface;
-  border: 1px solid $color-border;
-  color: $color-text-primary;
+  padding: 6px $spacing-md;
+  border-radius: $radius-sm;
+  color: $color-text-secondary;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-  text-decoration: none;
+  border: 1px solid transparent;
   transition: all $transition-fast;
 
   &:hover {
-    border-color: $color-favorite-light;
-    background-color: $color-favorite-light;
-    color: $color-favorite;
+    color: $color-text-primary;
+    background-color: $color-bg-secondary;
   }
 
   &.active {
-    border-color: $color-favorite;
-    background-color: $color-favorite-light;
     color: $color-favorite;
+    background-color: $color-favorite-light;
   }
 
   svg {
-    width: 17px;
-    height: 17px;
-    color: $color-favorite;
+    width: 18px;
+    height: 18px;
   }
+
+  @include focus-ring;
 
   @include mobile {
     padding: $spacing-xs $spacing-sm;
@@ -141,7 +141,7 @@
   height: 18px;
   padding: 0 5px;
   border-radius: $radius-full;
-  background-color: $color-favorite;
+  background-color: $color-primary;
   color: $color-text-white;
   font-size: $font-size-2xs;
   font-weight: $font-weight-bold;
