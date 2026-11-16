@@ -14,7 +14,7 @@ export const Layout: React.FC = () => {
       </main>
       <footer className={styles.footer}>
         <div className={styles.footerContainer}>
-          <span>Тестовое задание Автохолдинг Динамика</span>
+          <span>Тестовое задание Автохолдинг Динамика © {CURRENT_YEAR}</span>
           <span>Powered by Mia Frolova</span>
           <span>GitHub: amadesya</span>
         </div>
