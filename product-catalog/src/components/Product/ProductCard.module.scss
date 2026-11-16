@@ -9,19 +9,18 @@
   border: 1px solid $color-border;
   border-radius: $radius-lg;
   overflow: hidden;
-  transition: all $transition-base;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
   box-shadow: $shadow-card;
   text-decoration: none;
   color: inherit;
   height: 100%;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-card-hover;
     border-color: $color-border-hover;
+    box-shadow: $shadow-card-hover;
 
     .thumbnail {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
   }
 
@@ -31,19 +30,31 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  background-color: $color-bg-secondary;
+  aspect-ratio: 1 / 1;
+  background-color: #f7f7f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg;
   overflow: hidden;
+}
+
+.imageLink {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   transition: transform $transition-base;
+  mix-blend-mode: multiply;
 }
 
 .imageFallback {
@@ -55,8 +66,8 @@
   gap: $spacing-xs;
 
   svg {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   span {
@@ -72,26 +83,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: $radius-full;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(4px);
   color: $color-text-secondary;
-  box-shadow: $shadow-sm;
-  transition: all $transition-fast;
-  border: none;
+  border: 1px solid rgba(231, 229, 228, 0.8);
+  box-shadow: $shadow-xs;
   cursor: pointer;
+  transition: all $transition-fast;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
     color: $color-favorite;
     background-color: #ffffff;
+    border-color: $color-favorite-light;
   }
 
   &.active {
     color: $color-favorite;
     background-color: #ffffff;
+    border-color: $color-favorite;
 
     svg {
       fill: $color-favorite;
@@ -99,24 +112,36 @@
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     transition: transform $transition-fast;
   }
 
   &:active svg {
-    transform: scale(0.85);
+    transform: scale(0.9);
   }
+
+  @include focus-ring;
 }
 
-.badges {
+.badgePosition {
   position: absolute;
   top: $spacing-sm;
   left: $spacing-sm;
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
-  z-index: 1;
+  z-index: 2;
+}
+
+.discountBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 7px;
+  border-radius: $radius-xs;
+  background-color: $color-primary;
+  color: $color-text-white;
+  font-size: $font-size-2xs;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-wide;
+  line-height: 1;
 }
 
 .content {
@@ -132,20 +157,25 @@
 }
 
 .category {
-  font-size: $font-size-xs;
-  font-weight: $font-weight-medium;
+  font-size: $font-size-2xs;
+  font-weight: $font-weight-semibold;
   color: $color-text-muted;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: $letter-spacing-caps;
 }
 
 .title {
-  font-size: $font-size-base;
-  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
   color: $color-text-primary;
-  line-height: $line-height-tight;
+  line-height: $line-height-snug;
   @include line-clamp(2);
   margin-bottom: auto;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-text-secondary;
+  }
 }
 
 .metaRow {
@@ -164,16 +194,16 @@
   color: $color-rating-dark;
 
   svg {
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     fill: $color-rating;
     color: $color-rating;
   }
 }
 
 .stock {
-  font-size: $font-size-xs;
-  color: $color-text-secondary;
+  font-size: $font-size-2xs;
+  color: $color-text-muted;
 
   &.lowStock {
     color: $color-warning;
@@ -191,14 +221,15 @@
   align-items: baseline;
   gap: $spacing-sm;
   margin-top: $spacing-xs;
-  padding-top: $spacing-xs;
+  padding-top: $spacing-sm;
   border-top: 1px solid $color-border;
 }
 
 .price {
-  font-size: $font-size-xl;
+  font-size: $font-size-lg;
   font-weight: $font-weight-bold;
   color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
 }
 
 .oldPrice {

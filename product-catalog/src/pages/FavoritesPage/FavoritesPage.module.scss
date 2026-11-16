@@ -25,18 +25,19 @@
 }
 
 .title {
-  font-size: $font-size-3xl;
+  font-size: $font-size-2xl;
   font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
   color: $color-text-primary;
 
   @include mobile {
-    font-size: $font-size-2xl;
+    font-size: $font-size-xl;
   }
 }
 
 .count {
-  font-size: $font-size-base;
-  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
 }
 
 .actions {
@@ -46,15 +47,15 @@
 }
 
 .clearButton {
-  color: $color-error;
-  font-size: $font-size-sm;
+  color: $color-text-muted;
+  font-size: $font-size-xs;
   background: none;
   border: none;
   cursor: pointer;
-  transition: opacity $transition-fast;
+  transition: color $transition-fast;
 
   &:hover {
-    opacity: 0.8;
+    color: $color-error;
     text-decoration: underline;
   }
 }
@@ -65,8 +66,9 @@
   gap: $spacing-xl;
   width: 100%;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1279px) {
     grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
   }
 
   @include tablet {
@@ -75,11 +77,11 @@
   }
 
   @include mobile {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: $spacing-md;
 
-    @media (min-width: 480px) {
-      grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 350px) {
+      grid-template-columns: 1fr;
     }
   }
 }

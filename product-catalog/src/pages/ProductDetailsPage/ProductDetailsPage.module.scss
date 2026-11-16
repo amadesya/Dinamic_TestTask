@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: $spacing-xl;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
@@ -20,19 +20,19 @@
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  color: $color-primary;
+  color: $color-text-secondary;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   text-decoration: none;
-  transition: opacity $transition-fast;
+  transition: color $transition-fast;
 
   &:hover {
-    opacity: 0.8;
+    color: $color-text-primary;
   }
 
   svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -62,16 +62,17 @@
 }
 
 .brand {
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
-  color: $color-primary;
+  color: $color-text-muted;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: $letter-spacing-caps;
 }
 
 .title {
   font-size: $font-size-3xl;
   font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
   color: $color-text-primary;
   line-height: $line-height-tight;
 
@@ -95,25 +96,28 @@
   color: $color-rating-dark;
 
   svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     fill: $color-rating;
     color: $color-rating;
   }
 }
 
 .reviewsCount {
-  color: $color-text-secondary;
+  color: $color-text-muted;
+  font-size: $font-size-xs;
 }
 
 .stockBadge {
   display: inline-flex;
   align-items: center;
   gap: $spacing-xs;
-  font-size: $font-size-xs;
+  font-size: $font-size-2xs;
   font-weight: $font-weight-semibold;
-  padding: 4px 8px;
-  border-radius: $radius-sm;
+  padding: 3px 8px;
+  border-radius: $radius-xs;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
 
   &.inStock {
     background-color: $color-success-light;
@@ -138,6 +142,7 @@
   padding: $spacing-lg;
   background-color: $color-bg-secondary;
   border-radius: $radius-lg;
+  border: 1px solid $color-border;
 }
 
 .priceRow {
@@ -147,13 +152,14 @@
 }
 
 .currentPrice {
-  font-size: $font-size-4xl;
+  font-size: $font-size-3xl;
   font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
   color: $color-text-primary;
 }
 
 .oldPrice {
-  font-size: $font-size-lg;
+  font-size: $font-size-base;
   color: $color-text-muted;
   text-decoration: line-through;
 }
@@ -174,13 +180,14 @@
 }
 
 .sectionHeading {
-  font-size: $font-size-md;
-  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-tight;
   color: $color-text-primary;
 }
 
 .description {
-  font-size: $font-size-base;
+  font-size: $font-size-sm;
   line-height: $line-height-relaxed;
   color: $color-text-secondary;
 }
@@ -188,7 +195,7 @@
 .specsTable {
   width: 100%;
   border-collapse: collapse;
-  margin-top: $spacing-sm;
+  margin-top: $spacing-xs;
 
   tr {
     border-bottom: 1px solid $color-border;
@@ -201,14 +208,14 @@
   th,
   td {
     padding: $spacing-sm 0;
-    font-size: $font-size-sm;
+    font-size: $font-size-xs;
     text-align: left;
   }
 
   th {
     color: $color-text-muted;
     font-weight: $font-weight-normal;
-    width: 40%;
+    width: 38%;
   }
 
   td {
@@ -228,7 +235,7 @@
 
 .reviewsList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: $spacing-lg;
 }
 
@@ -239,7 +246,8 @@
   border-radius: $radius-lg;
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $spacing-xs;
+  box-shadow: $shadow-xs;
 }
 
 .reviewHeader {

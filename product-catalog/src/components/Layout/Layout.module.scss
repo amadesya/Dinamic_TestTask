@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: $color-bg-body;
 }
 
 .main {
@@ -12,7 +13,11 @@
   width: 100%;
   max-width: $container-max-width;
   margin: 0 auto;
-  padding: $spacing-2xl $spacing-lg;
+  padding: $spacing-2xl;
+
+  @include tablet-down {
+    padding: $spacing-xl $spacing-lg;
+  }
 
   @include mobile {
     padding: $spacing-lg $spacing-md;
@@ -29,16 +34,20 @@
 .footerContainer {
   max-width: $container-max-width;
   margin: 0 auto;
-  padding: 0 $spacing-lg;
+  padding: 0 $spacing-2xl;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: $font-size-xs;
   color: $color-text-muted;
 
+  @include tablet-down {
+    padding: 0 $spacing-lg;
+  }
+
   @include mobile {
     flex-direction: column;
-    gap: $spacing-sm;
+    gap: $spacing-xs;
     text-align: center;
     padding: 0 $spacing-md;
   }

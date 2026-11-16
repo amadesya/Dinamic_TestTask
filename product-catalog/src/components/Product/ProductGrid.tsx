@@ -23,24 +23,26 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
 }) => {
   if (isLoading && products.length === 0) {
     return (
-      <div className={styles.grid}>
-        {Array.from({ length: skeletonCount }).map((_, i) => (
-          <div key={`skeleton-${i}`} className={styles.skeletonCard}>
-            <Skeleton variant="rectangular" className={styles.skeletonImage} />
-            <div className={styles.skeletonBody}>
-              <Skeleton variant="text" width="40%" height={14} />
-              <Skeleton variant="text" width="90%" height={20} />
-              <Skeleton variant="text" width="70%" height={20} />
-              <Skeleton variant="text" width="50%" height={24} style={{ marginTop: 'auto' }} />
+      <div className={styles.gridContainer}>
+        <div className={styles.grid}>
+          {Array.from({ length: skeletonCount }).map((_, i) => (
+            <div key={`skeleton-${i}`} className={styles.skeletonCard}>
+              <Skeleton variant="rectangular" className={styles.skeletonImage} />
+              <div className={styles.skeletonBody}>
+                <Skeleton variant="text" width="35%" height={12} />
+                <Skeleton variant="text" width="90%" height={18} />
+                <Skeleton variant="text" width="60%" height={18} />
+                <Skeleton variant="text" width="40%" height={22} style={{ marginTop: 'auto' }} />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   }
 
   return (
-    <>
+    <div className={styles.gridContainer}>
       <div className={styles.grid}>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
@@ -61,6 +63,6 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
       {!hasMore && products.length > 0 && (
         <p className={styles.endOfList}>Все доступные товары загружены ({products.length})</p>
       )}
-    </>
+    </div>
   );
 };

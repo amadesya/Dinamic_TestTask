@@ -7,7 +7,7 @@ import { Button } from '../common/Button';
 import type { ProductSortField } from '../../types/api';
 
 const SORT_OPTIONS = [
-  { label: 'Без сортировки', value: '' },
+  { label: 'По умолчанию', value: '' },
   { label: 'По цене', value: 'price' },
   { label: 'По названию', value: 'title' },
   { label: 'По рейтингу', value: 'rating' },
@@ -18,6 +18,13 @@ export const FilterPanel: React.FC = () => {
   const { filters, setFilter, resetFilters, hasActiveFilters } = useCatalogFilters();
   const { data: categories = [], isLoading: isLoadingCategories } = useGetCategoriesQuery();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  const activeFiltersCount = [
+    filters.category,
+    filters.sortBy,
+    filters.modifiedAfter,
+    filters.modifiedBefore,
+  ].filter(Boolean).length;
 
   const categoryOptions = categories.map((cat) => ({
     label: cat.name,
@@ -44,26 +51,8 @@ export const FilterPanel: React.FC = () => {
     setFilter('modifiedBefore', e.target.value);
   };
 
-  const renderContent = () => (
+  const filterFields = (
     <>
-      <div className={styles.header}>
-        <div className={styles.title}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-          </svg>
-          <span>Фильтры</span>
-        </div>
-        {hasActiveFilters && (
-          <button
-            type="button"
-            className={styles.resetBtn}
-            onClick={resetFilters}
-          >
-            Сбросить все
-          </button>
-        )}
-      </div>
-
       {/* Category Filter */}
       <div className={styles.section}>
         <span className={styles.sectionTitle}>Категория</span>
@@ -71,7 +60,7 @@ export const FilterPanel: React.FC = () => {
           value={filters.category}
           onChange={handleCategoryChange}
           options={categoryOptions}
-          placeholder={isLoadingCategories ? 'Загрузка категорий...' : 'Все категории'}
+          placeholder={isLoadingCategories ? 'Загрузка...' : 'Все категории'}
           clearable={Boolean(filters.category)}
           onClear={() => setFilter('category', '')}
           disabled={isLoadingCategories}
@@ -119,7 +108,7 @@ export const FilterPanel: React.FC = () => {
         <div className={styles.dateRange}>
           <div className={styles.dateRow}>
             <label className={styles.dateLabel} htmlFor="date-after">
-              Изменено после:
+              После даты
             </label>
             <input
               id="date-after"
@@ -132,7 +121,7 @@ export const FilterPanel: React.FC = () => {
 
           <div className={styles.dateRow}>
             <label className={styles.dateLabel} htmlFor="date-before">
-              Изменено до:
+              До даты
             </label>
             <input
               id="date-before"
@@ -144,41 +133,76 @@ export const FilterPanel: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {hasActiveFilters && (
-        <Button variant="secondary" fullWidth onClick={resetFilters}>
-          Сбросить фильтры
-        </Button>
-      )}
     </>
   );
 
   return (
     <>
-      {/* Mobile Drawer Trigger */}
+      {/* Mobile Drawer Trigger (visible ONLY on mobile < 768px) */}
       <button
         type="button"
         className={styles.mobileTrigger}
         onClick={() => setIsMobileOpen(true)}
+        aria-label="Открыть панель фильтров"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
         </svg>
-        <span>
-          Фильтры {hasActiveFilters && '(активны)'}
-        </span>
+        <span>Фильтры</span>
+        {activeFiltersCount > 0 && (
+          <span className={styles.activeCount}>{activeFiltersCount}</span>
+        )}
       </button>
 
-      {/* Desktop Panel */}
-      <div className={styles.panel}>{renderContent()}</div>
+      {/* Desktop / Tablet Panel (visible ONLY on >= 768px) */}
+      <div className={styles.panel}>
+        <div className={styles.header}>
+          <div className={styles.title}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+            </svg>
+            <span>Параметры</span>
+            {activeFiltersCount > 0 && (
+              <span className={styles.activeCount}>{activeFiltersCount}</span>
+            )}
+          </div>
+          {hasActiveFilters && (
+            <button
+              type="button"
+              className={styles.resetBtn}
+              onClick={resetFilters}
+            >
+              Сбросить
+            </button>
+          )}
+        </div>
 
-      {/* Mobile Slide-over Drawer */}
+        {filterFields}
+
+        {hasActiveFilters && (
+          <Button variant="secondary" size="sm" fullWidth onClick={resetFilters}>
+            Очистить фильтры
+          </Button>
+        )}
+      </div>
+
+      {/* Mobile Slide-over Drawer (functional ONLY on mobile) */}
       <div
         className={`${styles.mobileDrawerOverlay} ${isMobileOpen ? styles.isOpen : ''}`}
         onClick={() => setIsMobileOpen(false)}
+        aria-hidden={!isMobileOpen}
       />
-      <div className={`${styles.mobileDrawer} ${isMobileOpen ? styles.isOpen : ''}`}>
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
+      <div
+        className={`${styles.mobileDrawer} ${isMobileOpen ? styles.isOpen : ''}`}
+        aria-hidden={!isMobileOpen}
+      >
+        <div className={styles.drawerHeader}>
+          <div className={styles.title}>
+            <span>Параметры фильтрации</span>
+            {activeFiltersCount > 0 && (
+              <span className={styles.activeCount}>{activeFiltersCount}</span>
+            )}
+          </div>
           <button
             type="button"
             className={styles.drawerCloseBtn}
@@ -188,7 +212,33 @@ export const FilterPanel: React.FC = () => {
             ×
           </button>
         </div>
-        {renderContent()}
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {filterFields}
+        </div>
+
+        <div className={styles.drawerFooter}>
+          <Button
+            variant="primary"
+            fullWidth
+            onClick={() => setIsMobileOpen(false)}
+          >
+            Показать результаты
+          </Button>
+          {hasActiveFilters && (
+            <Button
+              variant="ghost"
+              size="sm"
+              fullWidth
+              onClick={() => {
+                resetFilters();
+                setIsMobileOpen(false);
+              }}
+            >
+              Сбросить все
+            </Button>
+          )}
+        </div>
       </div>
     </>
   );

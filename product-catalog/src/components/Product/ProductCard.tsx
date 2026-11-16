@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
 import type { Product } from '../../types/product';
-import { Badge } from '../common/Badge';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { toggleFavorite, selectIsFavorite } from '../../features/favorites/favoritesSlice';
 
@@ -28,7 +27,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     : null;
 
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <div className={styles.imageWrapper}>
         <button
           type="button"
@@ -47,18 +46,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </svg>
         </button>
 
-        <div className={styles.badges}>
-          {discount > 0 && (
-            <Badge variant="discount" size="sm">
+        {discount > 0 && (
+          <div className={styles.badgePosition}>
+            <span className={styles.discountBadge}>
               -{discount}%
-            </Badge>
-          )}
-        </div>
+            </span>
+          </div>
+        )}
 
         <Link
           to={`/products/${product.id}`}
           state={{ fromSearch: location.search }}
-          style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          className={styles.imageLink}
+          tabIndex={-1}
+          aria-hidden="true"
         >
           {product.thumbnail && !imageError ? (
             <img
@@ -128,6 +129,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 };

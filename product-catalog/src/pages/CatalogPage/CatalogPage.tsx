@@ -10,7 +10,7 @@ import { StatePlaceholder } from '../../components/common/StatePlaceholder';
 const PAGE_LIMIT = 12;
 
 export const CatalogPage: React.FC = () => {
-  const { filters, resetFilters, hasActiveFilters } = useCatalogFilters();
+  const { filters, setFilter, resetFilters, hasActiveFilters } = useCatalogFilters();
   const [skip, setSkip] = useState(0);
   const filterKey = `${filters.q}|${filters.category}|${filters.sortBy}|${filters.order}|${filters.modifiedAfter}|${filters.modifiedBefore}`;
   const [prevFilterKey, setPrevFilterKey] = useState(filterKey);
@@ -56,7 +56,7 @@ export const CatalogPage: React.FC = () => {
         }
       },
       {
-        rootMargin: '200px',
+        rootMargin: '250px',
         threshold: 0.1,
       }
     );
@@ -70,17 +70,19 @@ export const CatalogPage: React.FC = () => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.topBar}>
-        <div className={styles.titleRow}>
+      <header className={styles.topBar}>
+        <div className={styles.titleArea}>
           <h1 className={styles.title}>Каталог товаров</h1>
           {data && (
             <span className={styles.totalBadge}>
-              Найдено: <strong>{total}</strong> {total === 1 ? 'товар' : 'товаров'}
+              {total} {total === 1 ? 'товар' : 'товаров'}
             </span>
           )}
         </div>
-        <SearchBar />
-      </div>
+        <div className={styles.searchArea}>
+          <SearchBar />
+        </div>
+      </header>
 
       <div className={styles.layout}>
         <aside className={styles.sidebar}>
@@ -88,11 +90,84 @@ export const CatalogPage: React.FC = () => {
         </aside>
 
         <section className={styles.content}>
+          {/* Active Filter Chips */}
+          {hasActiveFilters && (
+            <div className={styles.activeChipsBar}>
+              {filters.q && (
+                <span className={styles.chip}>
+                  Поиск: &laquo;{filters.q}&raquo;
+                  <button
+                    type="button"
+                    onClick={() => setFilter('q', '', { replace: true })}
+                    aria-label="Удалить фильтр поиска"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+              {filters.category && (
+                <span className={styles.chip}>
+                  Категория: {filters.category}
+                  <button
+                    type="button"
+                    onClick={() => setFilter('category', '')}
+                    aria-label="Удалить фильтр категории"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+              {filters.sortBy && (
+                <span className={styles.chip}>
+                  Сортировка: {filters.sortBy} ({filters.order === 'asc' ? '↑' : '↓'})
+                  <button
+                    type="button"
+                    onClick={() => setFilter('sortBy', '')}
+                    aria-label="Удалить сортировку"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+              {filters.modifiedAfter && (
+                <span className={styles.chip}>
+                  От: {filters.modifiedAfter}
+                  <button
+                    type="button"
+                    onClick={() => setFilter('modifiedAfter', '')}
+                    aria-label="Удалить фильтр даты от"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+              {filters.modifiedBefore && (
+                <span className={styles.chip}>
+                  До: {filters.modifiedBefore}
+                  <button
+                    type="button"
+                    onClick={() => setFilter('modifiedBefore', '')}
+                    aria-label="Удалить фильтр даты до"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+              <button
+                type="button"
+                className={styles.clearChipsBtn}
+                onClick={resetFilters}
+              >
+                Очистить все
+              </button>
+            </div>
+          )}
+
           {error ? (
             <StatePlaceholder
               variant="error"
               title="Не удалось загрузить товары"
-              description="Произошла ошибка при загрузке данных с сервера DummyJSON. Проверьте интернет-соединение и попробуйте снова."
+              description="Произошла ошибка при загрузке данных с сервера. Проверьте интернет-соединение и повторите попытку."
               actionText="Повторить попытку"
               onAction={() => refetch()}
             />
@@ -102,7 +177,7 @@ export const CatalogPage: React.FC = () => {
               title="Товары не найдены"
               description={
                 hasActiveFilters
-                  ? 'По вашему запросу и выбранным фильтрам ничего не найдено. Попробуйте изменить параметры поиска.'
+                  ? 'По вашему запросу и выбранным фильтрам ничего не найдено. Попробуйте сбросить параметры.'
                   : 'Список товаров пуст.'
               }
               actionText={hasActiveFilters ? 'Сбросить фильтры' : undefined}

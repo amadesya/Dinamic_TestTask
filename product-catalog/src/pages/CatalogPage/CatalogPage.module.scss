@@ -10,36 +10,65 @@
 
 .topBar {
   display: flex;
-  flex-direction: column;
-  gap: $spacing-md;
-}
-
-.titleRow {
-  display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: $spacing-sm;
+  gap: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $color-border;
+
+  @include tablet-down {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $spacing-md;
+  }
+}
+
+.titleArea {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-md;
+  flex-shrink: 0;
+
+  @include mobile {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 .title {
-  font-size: $font-size-3xl;
+  font-size: $font-size-2xl;
   font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
   color: $color-text-primary;
 
   @include mobile {
-    font-size: $font-size-2xl;
+    font-size: $font-size-xl;
   }
 }
 
 .totalBadge {
   font-size: $font-size-sm;
-  color: $color-text-secondary;
+  color: $color-text-muted;
+  white-space: nowrap;
+
+  strong {
+    color: $color-text-secondary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.searchArea {
+  flex: 1;
+  max-width: 460px;
+
+  @include tablet-down {
+    max-width: 100%;
+  }
 }
 
 .layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 260px 1fr;
   gap: $spacing-2xl;
   align-items: flex-start;
 
@@ -51,7 +80,8 @@
 
 .sidebar {
   position: sticky;
-  top: 80px;
+  top: 76px;
+  align-self: flex-start;
 
   @include tablet-down {
     position: static;
@@ -63,4 +93,53 @@
   flex-direction: column;
   gap: $spacing-lg;
   min-width: 0;
+  width: 100%;
+}
+
+.activeChipsBar {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+  padding: $spacing-xs 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 4px $spacing-sm;
+  border-radius: $radius-full;
+  background-color: $color-bg-secondary;
+  border: 1px solid $color-border;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  line-height: 1;
+
+  button {
+    font-size: 14px;
+    line-height: 1;
+    color: $color-text-muted;
+    cursor: pointer;
+    padding: 0;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-error;
+    }
+  }
+}
+
+.clearChipsBtn {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 $spacing-xs;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-error;
+  }
 }

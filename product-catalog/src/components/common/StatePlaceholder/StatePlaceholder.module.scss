@@ -7,8 +7,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: $spacing-4xl $spacing-xl;
-  max-width: 480px;
+  padding: $spacing-5xl $spacing-xl;
+  max-width: 440px;
   margin: 0 auto;
   min-height: 320px;
 }
@@ -17,33 +17,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   border-radius: $radius-full;
   margin-bottom: $spacing-xl;
 
   svg {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
   }
 
   &.empty {
     background-color: $color-bg-secondary;
     color: $color-text-secondary;
+    border: 1px solid $color-border;
   }
 
   &.error {
     background-color: $color-error-light;
     color: $color-error;
+    border: 1px solid rgba(185, 28, 28, 0.15);
   }
 
   &.notFound {
-    background-color: $color-primary-light;
-    color: $color-primary;
+    background-color: $color-bg-secondary;
+    color: $color-text-primary;
+    border: 1px solid $color-border;
   }
 
   &.loading {
-    background-color: $color-primary-light;
+    background-color: $color-bg-secondary;
     color: $color-primary;
   }
 }
@@ -51,12 +54,13 @@
 .title {
   font-size: $font-size-xl;
   font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
   color: $color-text-primary;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-xs;
 }
 
 .description {
-  font-size: $font-size-base;
+  font-size: $font-size-sm;
   color: $color-text-secondary;
   line-height: $line-height-relaxed;
   margin-bottom: $spacing-2xl;
@@ -66,6 +70,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: $spacing-md;
+  gap: $spacing-sm;
   flex-wrap: wrap;
 }

@@ -1,15 +1,20 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+// Desktop / Tablet Sidebar Panel
 .panel {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xl;
-  background-color: $color-bg-surface;
-  border: 1px solid $color-border;
-  border-radius: $radius-lg;
-  padding: $spacing-xl;
-  box-shadow: $shadow-xs;
+  display: none;
+
+  @include tablet-up {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    background-color: $color-bg-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    padding: $spacing-xl;
+    box-shadow: $shadow-xs;
+  }
 }
 
 .header {
@@ -21,31 +26,46 @@
 }
 
 .title {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
   color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $spacing-xs;
 
   svg {
-    width: 20px;
-    height: 20px;
-    color: $color-primary;
+    width: 18px;
+    height: 18px;
+    color: $color-text-secondary;
   }
+}
+
+.activeCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: $radius-full;
+  background-color: $color-primary;
+  color: $color-text-white;
+  font-size: $font-size-2xs;
+  font-weight: $font-weight-bold;
+  line-height: 1;
 }
 
 .resetBtn {
   font-size: $font-size-xs;
-  color: $color-error;
+  color: $color-text-muted;
   cursor: pointer;
   background: none;
   border: none;
   padding: 0;
-  transition: opacity $transition-fast;
+  transition: color $transition-fast;
 
   &:hover {
-    opacity: 0.8;
+    color: $color-error;
     text-decoration: underline;
   }
 }
@@ -53,7 +73,7 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $spacing-xs;
 }
 
 .sectionTitle {
@@ -61,13 +81,13 @@
   font-weight: $font-weight-semibold;
   color: $color-text-secondary;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: $letter-spacing-caps;
 }
 
 .sortGrid {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: $spacing-sm;
+  gap: $spacing-xs;
   align-items: flex-end;
 }
 
@@ -87,13 +107,16 @@
   &:hover {
     background-color: $color-bg-tertiary;
     color: $color-text-primary;
+    border-color: $color-border-hover;
   }
 
   svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     transition: transform $transition-fast;
   }
+
+  @include focus-ring;
 }
 
 .dateRange {
@@ -108,9 +131,14 @@
   gap: $spacing-2xs;
 }
 
+.dateLabel {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
 .dateInput {
   width: 100%;
-  height: 40px;
+  height: 38px;
   padding: 0 $spacing-md;
   border: 1px solid $color-border;
   border-radius: $radius-md;
@@ -118,7 +146,7 @@
   font-size: $font-size-sm;
   color: $color-text-primary;
   outline: none;
-  transition: all $transition-fast;
+  transition: border-color $transition-fast;
 
   &:hover {
     border-color: $color-border-hover;
@@ -127,66 +155,83 @@
   @include focus-ring;
 }
 
-.dateLabel {
-  font-size: $font-size-xs;
-  color: $color-text-secondary;
-}
-
-// Mobile Drawer
+// Mobile Trigger Button
 .mobileTrigger {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  width: 100%;
+  height: 42px;
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  cursor: pointer;
+  transition: all $transition-fast;
+  box-shadow: $shadow-xs;
 
-  @include mobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: $spacing-sm;
-    width: 100%;
-    height: 44px;
-    background-color: $color-bg-surface;
-    border: 1px solid $color-border;
-    border-radius: $radius-md;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-medium;
-    color: $color-text-primary;
-    cursor: pointer;
-    box-shadow: $shadow-xs;
+  &:hover {
+    border-color: $color-border-hover;
+    background-color: $color-bg-secondary;
+  }
 
-    svg {
-      width: 18px;
-      height: 18px;
-    }
+  svg {
+    width: 18px;
+    height: 18px;
+    color: $color-text-secondary;
+  }
+
+  @include tablet-up {
+    display: none !important;
   }
 }
 
+// Mobile Slide-over Drawer
 .mobileDrawerOverlay {
   display: none;
 
   @include mobile {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(28, 25, 23, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: $z-drawer-backdrop;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-base;
+
     &.isOpen {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(15, 23, 42, 0.5);
-      backdrop-filter: blur(2px);
-      z-index: $z-drawer;
+      opacity: 1;
+      pointer-events: auto;
     }
+  }
+
+  @include tablet-up {
+    display: none !important;
   }
 }
 
 .mobileDrawer {
+  display: none;
+
   @include mobile {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    width: 85%;
-    max-width: 360px;
+    width: 88%;
+    max-width: 380px;
     background-color: $color-bg-surface;
-    z-index: $z-drawer + 1;
+    z-index: $z-drawer;
     overflow-y: auto;
     padding: $spacing-xl;
     transform: translateX(100%);
@@ -197,6 +242,25 @@
       transform: translateX(0);
     }
   }
+
+  @include tablet-up {
+    display: none !important;
+  }
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $color-border;
+}
+
+.drawerTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
 }
 
 .drawerCloseBtn {
@@ -207,12 +271,23 @@
   height: 32px;
   border-radius: $radius-full;
   background-color: $color-bg-secondary;
-  border: none;
+  border: 1px solid $color-border;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
+  color: $color-text-secondary;
+  transition: all $transition-fast;
 
   &:hover {
     background-color: $color-bg-tertiary;
+    color: $color-text-primary;
   }
+}
+
+.drawerFooter {
+  margin-top: auto;
+  padding-top: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
 }
