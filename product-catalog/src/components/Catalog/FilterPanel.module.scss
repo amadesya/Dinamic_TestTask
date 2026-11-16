@@ -1,0 +1,218 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  box-shadow: $shadow-xs;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $color-border;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: $color-primary;
+  }
+}
+
+.resetBtn {
+  font-size: $font-size-xs;
+  color: $color-error;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.sectionTitle {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sortGrid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: $spacing-sm;
+  align-items: flex-end;
+}
+
+.orderToggleBtn {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $color-bg-tertiary;
+    color: $color-text-primary;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    transition: transform $transition-fast;
+  }
+}
+
+.dateRange {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.dateRow {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xs;
+}
+
+.dateInput {
+  width: 100%;
+  height: 40px;
+  padding: 0 $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background-color: $color-bg-surface;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  outline: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $color-border-hover;
+  }
+
+  @include focus-ring;
+}
+
+.dateLabel {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+// Mobile Drawer
+.mobileTrigger {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    width: 100%;
+    height: 44px;
+    background-color: $color-bg-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+    cursor: pointer;
+    box-shadow: $shadow-xs;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.mobileDrawerOverlay {
+  display: none;
+
+  @include mobile {
+    &.isOpen {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(2px);
+      z-index: $z-drawer;
+    }
+  }
+}
+
+.mobileDrawer {
+  @include mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 360px;
+    background-color: $color-bg-surface;
+    z-index: $z-drawer + 1;
+    overflow-y: auto;
+    padding: $spacing-xl;
+    transform: translateX(100%);
+    transition: transform $transition-base;
+    box-shadow: $shadow-lg;
+
+    &.isOpen {
+      transform: translateX(0);
+    }
+  }
+}
+
+.drawerCloseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  background-color: $color-bg-secondary;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+
+  &:hover {
+    background-color: $color-bg-tertiary;
+  }
+}

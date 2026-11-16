@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  width: 100%;
+}
+
+.topBar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.title {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.totalBadge {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: $spacing-2xl;
+  align-items: flex-start;
+
+  @include tablet-down {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 80px;
+
+  @include tablet-down {
+    position: static;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  min-width: 0;
+}

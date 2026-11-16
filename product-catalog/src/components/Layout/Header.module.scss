@@ -1,0 +1,139 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background-color: $color-bg-surface;
+  border-bottom: 1px solid $color-border;
+  box-shadow: $shadow-xs;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+
+  @include mobile {
+    padding: 0 $spacing-md;
+    height: 56px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  @include mobile {
+    font-size: $font-size-lg;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-md;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $color-primary;
+    background-color: $color-primary-light;
+  }
+
+  &.active {
+    color: $color-primary;
+    background-color: $color-primary-light;
+  }
+}
+
+.favoritesButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-full;
+  background-color: $color-bg-secondary;
+  color: $color-text-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $color-favorite-light;
+    color: $color-favorite;
+  }
+
+  &.active {
+    background-color: $color-favorite-light;
+    color: $color-favorite;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: $color-favorite;
+  }
+
+  @include mobile {
+    padding: $spacing-xs $spacing-sm;
+
+    .label {
+      display: none;
+    }
+  }
+}
+
+.counterBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: $radius-full;
+  background-color: $color-favorite;
+  color: $color-text-white;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}

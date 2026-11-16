@@ -1,0 +1,64 @@
+@use '../../../styles/variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-family: $font-family-base;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-sm;
+  line-height: 1;
+  white-space: nowrap;
+
+  &.sm {
+    padding: 3px 6px;
+    font-size: $font-size-xs;
+  }
+
+  &.md {
+    padding: 4px 8px;
+    font-size: $font-size-sm;
+  }
+
+  &.pill {
+    border-radius: $radius-full;
+  }
+
+  // Variants
+  &.default {
+    background-color: $color-bg-secondary;
+    color: $color-text-secondary;
+  }
+
+  &.primary {
+    background-color: $color-primary-light;
+    color: $color-primary;
+  }
+
+  &.success {
+    background-color: $color-success-light;
+    color: $color-success;
+  }
+
+  &.warning {
+    background-color: $color-warning-light;
+    color: $color-warning;
+  }
+
+  &.error {
+    background-color: $color-error-light;
+    color: $color-error;
+  }
+
+  &.discount {
+    background-color: $color-favorite-light;
+    color: $color-favorite;
+    font-weight: $font-weight-semibold;
+  }
+
+  &.rating {
+    background-color: $color-rating-light;
+    color: $color-rating-dark;
+    font-weight: $font-weight-semibold;
+  }
+}

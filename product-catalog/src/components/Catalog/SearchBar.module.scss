@@ -1,0 +1,82 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  transition: all $transition-fast;
+  box-shadow: $shadow-xs;
+
+  &:hover {
+    border-color: $color-border-hover;
+  }
+
+  &.focused {
+    border-color: $color-border-focus;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+}
+
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: $spacing-lg;
+  color: $color-text-muted;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  padding: 0 $spacing-md;
+  border: none;
+  background: transparent;
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  outline: none;
+
+  &::placeholder {
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+  }
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: $radius-full;
+  background-color: $color-bg-secondary;
+  color: $color-text-secondary;
+  font-size: 16px;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  margin-right: $spacing-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $color-bg-tertiary;
+    color: $color-text-primary;
+  }
+}
+
+.hint {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin-top: $spacing-xs;
+  padding-left: $spacing-xs;
+}

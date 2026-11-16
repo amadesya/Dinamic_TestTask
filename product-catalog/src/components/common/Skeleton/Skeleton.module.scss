@@ -1,0 +1,25 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.skeleton {
+  @include skeleton-shimmer;
+  display: block;
+
+  &.text {
+    height: 1em;
+    border-radius: $radius-xs;
+    margin-bottom: $spacing-xs;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.rectangular {
+    border-radius: $radius-md;
+  }
+
+  &.circular {
+    border-radius: $radius-full;
+  }
+}

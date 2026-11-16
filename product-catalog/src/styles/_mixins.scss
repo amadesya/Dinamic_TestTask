@@ -1,0 +1,97 @@
+@use 'variables' as *;
+
+// Responsive Breakpoints
+$breakpoint-mobile: 767.98px;
+$breakpoint-tablet: 1023.98px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-xl: 1280px;
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-down {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: #{$breakpoint-desktop-xl}) {
+    @content;
+  }
+}
+
+// Text Truncation
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Accessibility Focus Ring
+@mixin focus-ring {
+  outline: none;
+  &:focus-visible {
+    outline: 2px solid $color-border-focus;
+    outline-offset: 2px;
+  }
+}
+
+// Skeleton Shimmer Animation
+@mixin skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    $color-bg-secondary 25%,
+    $color-bg-tertiary 37%,
+    $color-bg-secondary 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-shimmer-kf 1.4s ease infinite;
+}
+
+@keyframes skeleton-shimmer-kf {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+// Hide scrollbar but keep functional
+@mixin no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,110 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $color-border;
+}
+
+.titleArea {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-md;
+}
+
+.title {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.count {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.clearButton {
+  color: $color-error;
+  font-size: $font-size-sm;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-xl;
+  width: 100%;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+    gap: $spacing-md;
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  height: 380px;
+}
+
+.errorCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-surface;
+  border: 1px dashed $color-border;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  height: 200px;
+  gap: $spacing-sm;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
