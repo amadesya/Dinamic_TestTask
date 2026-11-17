@@ -30,11 +30,10 @@
 Команды выполняются из папки product-catalog:
 
 ```bash
+git clone https://github.com/amadesya/Dinamic_TestTask.git
+cd Dinamic_TestTask/product-catalog
 npm install
-npm run dev       # запуск сервера разработки (http://localhost:5173/)
-npm run build     # проверка типов (tsc -b) и production-сборка
-npm run lint      # запуск линтера Oxlint
-npm run preview   # локальный предпросмотр production-сборки
+npm run dev
 ```
 
 ## Структура проекта
