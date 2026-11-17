@@ -1,6 +1,17 @@
-# Product Catalog
+# Тестовое задание Автохолдинг Динамика
 
 Тестового задание на позицию Frontend-разработчика. Каталог товаров с поиском, фильтрацией, пагинацией и избранным с DummyJSON. 
+
+## Запуск проекта
+
+Требования к окружению: Node.js 18+ и npm 9+.
+
+```bash
+git clone https://github.com/amadesya/Dinamic_TestTask.git
+cd Dinamic_TestTask/product-catalog
+npm install
+npm run dev
+```
 
 ## Реализовано
 
@@ -23,40 +34,28 @@
 - SCSS Modules
 - Oxlint
 
-## Запуск проекта
-
-Требования к окружению: Node.js 18+ и npm 9+.
-
-```bash
-git clone https://github.com/amadesya/Dinamic_TestTask.git
-cd Dinamic_TestTask/product-catalog
-npm install
-npm run dev
-```
-
 ## Структура проекта
 
-- `src/api` — RTK Query
-- `src/app` — конфигурация Redux store и хуки.
-- `src/components` — UI-компоненты
-- `src/features` — клиентская логика состояния, где реализовано избранное с localStorage, хук синхронизации URL useCatalogFilters.
-- `src/pages` — страницы приложения
-- `src/router` — маршрутизация
-- `src/styles` — стили
-- `src/types` — модели данных и типы параметров запросов
-- `src/utils` — модули расчета скидок
+- `src/api` - RTK Query
+- `src/app` - конфигурация Redux store и хуки.
+- `src/components` - UI-компоненты
+- `src/features` - клиентская логика состояния, где реализовано избранное с localStorage, хук синхронизации URL useCatalogFilters.
+- `src/pages` - страницы приложения
+- `src/router` - маршрутизация
+- `src/styles` - стили
+- `src/types` - модели данных и типы параметров запросов
+- `src/utils` - модули расчета скидок
 
 ## API
 
-Приложение использует REST API DummyJSON 
-Ссылка: https://dummyjson.com/docs/products
+Приложение использует REST API DummyJSON(https://dummyjson.com/docs/products)
 
 Endpoints:
-- GET /products — список товаров
-- GET /products/:id — данные товара по ID
-- GET /products/search — поиск товаров
-- GET /products/categories и GET /products/category-list — список категорий
-- GET /products/category/:category — товары выбранной категории
-- POST /products/add, PUT /products/:id, PATCH /products/:id, DELETE /products/:id — изменение данных
+- GET /products - список товаров
+- GET /products/:id - данные товара по ID
+- GET /products/search - поиск товаров
+- GET /products/categories и GET /products/category-list - список категорий
+- GET /products/category/:category - товары выбранной категории
+- POST /products/add, PUT /products/:id, PATCH /products/:id, DELETE /products/:id - изменение данных
 
 Изменение данных не сохраняются в базе данных.
