@@ -1,36 +1,35 @@
-// Editorial Commerce Palette
-// Clean, high-contrast, authentic retail aesthetics (inspired by modern European commerce: COS, Farfetch, Dyson)
-$color-bg-body: #ffffff;        // Pure clean canvas
-$color-bg-surface: #ffffff;     // Card surface
-$color-bg-secondary: #f7f7f8;   // Subtle photo canvas / input fill
-$color-bg-tertiary: #f0f0f2;    // Hover & tag background
+// Colors
+$color-bg-body: #ffffff;
+$color-bg-surface: #ffffff;
+$color-bg-secondary: #f7f7f8;
+$color-bg-tertiary: #f0f0f2;
 $color-bg-elevated: #ffffff;
 
-// High-Contrast Typography
-$color-text-primary: #111827;   // Deep black ink
-$color-text-secondary: #4b5563; // Neutral body text
-$color-text-muted: #646c79;     // Subtle meta text (WCAG AA compliant >= 4.5:1)
+// Typography colors
+$color-text-primary: #111827;
+$color-text-secondary: #4b5563;
+$color-text-muted: #646c79; // WCAG AA compliant >= 4.5:1
 $color-text-white: #ffffff;
 
-// Hairline Architectural Dividers (no heavy borders)
-$color-border: #ececee;         // Hairline rule
-$color-border-hover: #d1d5db;   // Refined hover border
-$color-border-focus: #111827;   // High-contrast ink focus outline
+// Borders
+$color-border: #ececee;
+$color-border-hover: #d1d5db;
+$color-border-focus: #111827;
 
-// Brand Roles
-$color-primary: #111827;        // Pure ink black primary
-$color-primary-hover: #1f2937;  // Soft dark slate
+// Brand colors
+$color-primary: #111827;
+$color-primary-hover: #1f2937;
 $color-primary-active: #000000;
 $color-primary-light: #f3f4f6;
 
-$color-accent: #111827;         // Minimalist black accent
+$color-accent: #111827;
 $color-accent-light: #f3f4f6;
 
 $color-secondary: #4b5563;
 $color-secondary-hover: #374151;
 $color-secondary-light: #f9fafb;
 
-// Commercial Feedback & Tags
+// Status colors
 $color-success: #15803d;        // Clean green
 $color-success-light: #f0fdf4;
 $color-warning: #b45309;        // Amber warning
@@ -92,7 +91,7 @@ $spacing-4xl: 40px;
 $spacing-5xl: 48px;
 $spacing-6xl: 64px;
 
-// Architectural Radii (Subtle & Disciplined)
+// Border radius
 $radius-xs: 2px;
 $radius-sm: 3px;
 $radius-md: 4px;
@@ -101,12 +100,12 @@ $radius-xl: 8px;
 $radius-2xl: 12px;
 $radius-full: 9999px;
 
-// Ambient Retail Shadows (Extremely subtle, never muddy)
+// Shadows
 $shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
 $shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
 $shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
 $shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.07);
-$shadow-card: none; // Retail cards are crisp, separated by clean white space
+$shadow-card: none;
 $shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.06);
 
 // Transitions

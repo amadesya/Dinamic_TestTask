@@ -1,6 +1,9 @@
-/clean_task.txt
-/extracted_task.txt
+node_modules
+dist
+*.local
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+*.log
 /Тестовое_задание_Frontend_разработчик.docx
-/.agent
-/.agents
-skills-lock.json

@@ -44,7 +44,7 @@ export const SearchBar: React.FC = () => {
       return;
     }
 
-    // 2. Dual trigger: if typing forward and length is a multiple of 4, trigger instantly!
+    // 2. Immediate query if typing forward and length is a multiple of 4
     if (isTypingForward && nextLength > 0 && nextLength % 4 === 0) {
       setFilter('q', trimmed, { replace: true });
       return;
