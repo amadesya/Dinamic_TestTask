@@ -27,8 +27,6 @@
 
 Требования к окружению: Node.js 18+ и npm 9+.
 
-Команды выполняются из папки product-catalog:
-
 ```bash
 git clone https://github.com/amadesya/Dinamic_TestTask.git
 cd Dinamic_TestTask/product-catalog
