@@ -167,7 +167,7 @@ export const CatalogPage: React.FC = () => {
             <StatePlaceholder
               variant="error"
               title="Не удалось загрузить товары"
-              description="Произошла ошибка при загрузке данных с сервера. Проверьте интернет-соединение и повторите попытку."
+              description="Проверьте интернет-соединение и повторите попытку."
               actionText="Повторить попытку"
               onAction={() => refetch()}
             />
@@ -177,7 +177,7 @@ export const CatalogPage: React.FC = () => {
               title="Товары не найдены"
               description={
                 hasActiveFilters
-                  ? 'По вашему запросу и выбранным фильтрам ничего не найдено. Попробуйте сбросить параметры.'
+                  ? 'Попробуйте сбросить параметры.'
                   : 'Список товаров пуст.'
               }
               actionText={hasActiveFilters ? 'Сбросить фильтры' : undefined}

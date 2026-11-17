@@ -1,0 +1,383 @@
+{
+  "version": 2,
+  "skills": {
+    "animate": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/animate/SKILL.md",
+      "computedHash": "c622e29fa956aea703dc4e2b8726d9a017d438beb284a60bc3fdb2540c602102"
+    },
+    "animate-expo": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/animate-expo/SKILL.md",
+      "computedHash": "f221c9cfe03d9255ac3e2383bfb8b1481036142fe2fe9567403eb071d21092bb"
+    },
+    "animation-performance": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/animation-performance/SKILL.md",
+      "computedHash": "1ff92f577fc2b7781ed622fd4eb5e514c252cf5cb95c3661743cd127ee01290a"
+    },
+    "animation-vocabulary": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/animation-vocabulary/SKILL.md",
+      "computedHash": "e1d19134dc63dfb09379f7b42557b63b6123becdd36d15bae991d0b6ca5b2110"
+    },
+    "apple-design": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/apple-design/SKILL.md",
+      "computedHash": "163ba8b42c7d9d5ccb08674266d4727c9ec610b9d876c906b1f29ce5e0d933da"
+    },
+    "ask-emil": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/ask-emil/SKILL.md",
+      "computedHash": "e7a92fe034a4151a27fbe2fad8813ffd18a9c98d6db8689930a1fdb3a7d536f5"
+    },
+    "ask-sonner": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/ask-sonner/SKILL.md",
+      "computedHash": "9e82788679f5f71c9e0686b66200565c3f4e47037a06b9d1e94567ed42361bbc"
+    },
+    "break-ui": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/break-ui/SKILL.md",
+      "computedHash": "f089f3663e197fb4e106249df70e815a96e3236520a2e1c0919d1694816baca8"
+    },
+    "choreograph": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/choreograph/SKILL.md",
+      "computedHash": "a33a7cf57eacff502f833778eed62244fb5a890bb25124dacde73bcf8716218c"
+    },
+    "clean-code": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-code/SKILL.md",
+      "computedHash": "73a77e47c07e4f0dd3c869254feeaa60a93055e90db10f021c0412a5a88c690d"
+    },
+    "clean-code-reviewer": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-code-reviewer/SKILL.md",
+      "computedHash": "3f2974305b46b207d88ebbaba579b26873822cba1856a6611e046cdbe313b160"
+    },
+    "clean-code-reviewer-correctness": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-code-reviewer-correctness/SKILL.md",
+      "computedHash": "b80afc55ec0f75e56e4a7d082ba5b7c63bfec4cefd71027171523a7211a7ee31"
+    },
+    "clean-css": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-css/SKILL.md",
+      "computedHash": "2cd1335ee540c5040975821cae7e99d6208f46fd6406d4d893c63a7b3c96eec0"
+    },
+    "clean-general": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-general/SKILL.md",
+      "computedHash": "a615d59a2b97a044531fe432deef81dfe2e189e293dbcf56a7918bb19b006d25"
+    },
+    "clean-general-comments": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-general-comments/SKILL.md",
+      "computedHash": "ce05f1cf9145a8a4982c7963940a8cb3bb5ed87656999d8faa2ab86e9664daa9"
+    },
+    "clean-general-names": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-general-names/SKILL.md",
+      "computedHash": "5dc7e1e3dbb1902b9357958deb655fc862bb244383d7d56e16b9f7b2ed8d9ecf"
+    },
+    "clean-python": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-python/SKILL.md",
+      "computedHash": "59fd294657227bc34899052b85680c768e48d7a82c6bf7ad78d66f7b7b3f14a0"
+    },
+    "clean-python-async": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-python-async/SKILL.md",
+      "computedHash": "6a6abe39efc838a01d2ca03686e2f71e780c4ceb09d3fb3e1ce78aeb033dd430"
+    },
+    "clean-python-boundaries": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-python-boundaries/SKILL.md",
+      "computedHash": "8956fefb9593b48c7725fc843fd8be9a82cb81c761b6fb481c33fb28ee899709"
+    },
+    "clean-python-error-handling": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-python-error-handling/SKILL.md",
+      "computedHash": "ed8179b13f75d3ae525f0fc3c00447adf4f33f2ec760df49e4d9d422cbb3a45c"
+    },
+    "clean-python-functions": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-python-functions/SKILL.md",
+      "computedHash": "5d198b591fa6b00b6adf5359a666ea61381006f63d564138430c86a7ee070ca6"
+    },
+    "clean-python-modules": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-python-modules/SKILL.md",
+      "computedHash": "0ba0ac9b76320e8990ae4be0bf06f8a9b8eb1f83dda734ad5732029c09a9cce2"
+    },
+    "clean-python-objects-data": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-python-objects-data/SKILL.md",
+      "computedHash": "7a09ddd90279b14e3f8badb243191d1d82ccf1e79b0cabc381de49b04d999757"
+    },
+    "clean-python-tests": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-python-tests/SKILL.md",
+      "computedHash": "cfaa454b8fd8ba1db1a7a203036cb1e576786300add3e517147fe6bf1219b5e0"
+    },
+    "clean-react": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-react/SKILL.md",
+      "computedHash": "fc2621595ff563c71173a51f36f7b55e2afd63c304d29407c5b62882a41f372d"
+    },
+    "clean-react-components": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-react-components/SKILL.md",
+      "computedHash": "947cb33488a319bb147d4ce6d5a662d1a895692d0da35b6179a8ff30b259fa38"
+    },
+    "clean-react-file-organization": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-react-file-organization/SKILL.md",
+      "computedHash": "1cc760d46a9b6ae17ad72a2803b24b38089deed27437bad0e95e9097c7ec1de4"
+    },
+    "clean-react-hooks": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-react-hooks/SKILL.md",
+      "computedHash": "5a08d254d104301d7fd6f44a8b05afcd1904524f52e70aa88288a5cfc507911f"
+    },
+    "clean-react-state": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-react-state/SKILL.md",
+      "computedHash": "37f2a55719b95916e3e2a5406176c2ce0a3f323ba2cf4d104e9cdd279ff0232f"
+    },
+    "clean-react-tests": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-react-tests/SKILL.md",
+      "computedHash": "d9a632a109a45ae135a0dbae2466631b5e9c9c0a7021a16dd415ecc4e33ae911"
+    },
+    "clean-typescript": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-typescript/SKILL.md",
+      "computedHash": "56b4785df0607d4ec54c7a282bf596d182f21ffef0e37adc727095a35f9b43d9"
+    },
+    "clean-typescript-async": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-typescript-async/SKILL.md",
+      "computedHash": "642c7b67fac54e016fafd517da61e4cda9300cd1b283b99e5194c109de695293"
+    },
+    "clean-typescript-boundaries": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-typescript-boundaries/SKILL.md",
+      "computedHash": "7381734f164e1bb67bc4507d51010cf026be3af594b99ad9844d27013c4011d9"
+    },
+    "clean-typescript-error-handling": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-typescript-error-handling/SKILL.md",
+      "computedHash": "3edbdcc956c4eab610d5c0c9dab971d69bf889e01d8cfbe0aa607aeb5d46db6f"
+    },
+    "clean-typescript-functions": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-typescript-functions/SKILL.md",
+      "computedHash": "3c7d5e90859f8c02bab751c778155fb571c25f4d5491199901d735dca15056f4"
+    },
+    "clean-typescript-modules": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-typescript-modules/SKILL.md",
+      "computedHash": "de70c560d615a1db0897399353e4370802f6f3559dc1b0d3879199df7202688a"
+    },
+    "clean-typescript-objects-data": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-typescript-objects-data/SKILL.md",
+      "computedHash": "efdbf7f3b25320940354afb995efd9edb78ae04dfafe5b10ccf793fb0e553ec6"
+    },
+    "clean-typescript-tests": {
+      "source": "gosukiwi/clean-code-skills",
+      "commit": "ee98651d05bb8a54000fabb27c8760bca766f34b",
+      "sourceType": "github",
+      "skillPath": "skills/clean-typescript-tests/SKILL.md",
+      "computedHash": "895f512a080b34b75693989efd682141c79858983af838f712717cfdb49ce160"
+    },
+    "code-humanizer": {
+      "source": "LeonardNJU/code-humanizer",
+      "commit": "8ffe07b2f1301f4285c9ccaed387bd203ff6ef4c",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "dff3703384a11be9c81222d24f2c788c3266a54039c602c78bab298c1d68f792"
+    },
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "computedHash": "b10eab0a9684cd09cf34c31ef04a3bf530a5f4404422f9c520d42372d670c7fc"
+    },
+    "emil-design-eng": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/emil-design-eng/SKILL.md",
+      "computedHash": "e1b377ccde1d32743d1d3f7d8626629deb8055c9114d180c184697928cc66cc6"
+    },
+    "find-animation-opportunities": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/find-animation-opportunities/SKILL.md",
+      "computedHash": "9ec1c8c622b2c3caf9bda1712440e25dd4f9bc6da1207db4fa80b784aa319186"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "83485963700bcf11d5bf78118facb301676b69d918fee2e45a95e7f1a2840f6c"
+    },
+    "gestures": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/gestures/SKILL.md",
+      "computedHash": "f17aa90d244bed37d09a608f9b8f58cd7a8dd6b9ff1a06fe2217f6f242c624f7"
+    },
+    "human-commit": {
+      "source": "b4r7x/agent-skills",
+      "commit": "292bad1458a30384e9e6eb3d46ba24428d7c5618",
+      "sourceType": "github",
+      "skillPath": "human-commit/SKILL.md",
+      "computedHash": "1cfa331c6636d9685d3744e1d49d75bc9cd233c7fe3306436701da3989914c39"
+    },
+    "improve-animations": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/improve-animations/SKILL.md",
+      "computedHash": "5c33add82a79754bec0d7ee3376525e24e77b34575d5ae29d0c204f730356eab"
+    },
+    "learn-taste": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/learn-taste/SKILL.md",
+      "computedHash": "edaec540d02abdad48727b7d769574d0ee42e79304826c899a7aba90ef0197c1"
+    },
+    "mobile-native": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/mobile-native/SKILL.md",
+      "computedHash": "2f55a258f185314d585cb6a3514a66c15e9cfc8cd45c936284c4fb7374603d7e"
+    },
+    "pick-ui-library": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/pick-ui-library/SKILL.md",
+      "computedHash": "3bc44e7faccb949583f4af6c8a15b5a50acc04a5e656f5168a96e5aa43e9f3cd"
+    },
+    "prototype": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/prototype/SKILL.md",
+      "computedHash": "00fb13a91dbb746e2be91ae4dd67c4cc1f9907351f2d404a0cc6c849be1ebd95"
+    },
+    "remove-animations": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/remove-animations/SKILL.md",
+      "computedHash": "22491898575c9eed57fc1add66a072bfb5ed2cc946289c54f41c3d10b6be4204"
+    },
+    "review-animations": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/review-animations/SKILL.md",
+      "computedHash": "50f1de2394b88bb3433eca1e30da6866a4e310963d872a66af20ca77fd77f07d"
+    },
+    "slop-cop": {
+      "source": "howshannon/slop-cop",
+      "commit": "82ad8488d83e97bc83fea9358492617ff96923af",
+      "sourceType": "github",
+      "skillPath": "skills/slop-cop/SKILL.md",
+      "computedHash": "b7a9790f9f215ea78a404813a2e907c7d3845897f996cc3fa8341a0eadc90099"
+    },
+    "write-swift": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/write-swift/SKILL.md",
+      "computedHash": "8e4baab8638930f60e44545f9cc2ec61b0ee18b1b9b18aafe29ebc0bdd6972b8"
+    }
+  }
+}

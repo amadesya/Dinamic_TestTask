@@ -9,7 +9,10 @@
   border: 1px solid $color-border;
   border-radius: $radius-md;
   overflow: hidden;
-  transition: border-color $transition-fast, box-shadow $transition-fast;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast,
+    transform $transition-fast;
   text-decoration: none;
   color: inherit;
   height: 100%;
@@ -17,6 +20,7 @@
   &:hover {
     border-color: $color-border-hover;
     box-shadow: $shadow-card-hover;
+    transform: translateY(-2px);
   }
 
   @include focus-ring;
@@ -81,14 +85,18 @@
   width: 28px;
   height: 28px;
   background-color: transparent;
-  color: rgba(17, 24, 39, 0.4);
+  color: rgba(17, 24, 39, 0.35);
   border: none;
   cursor: pointer;
-  transition: color $transition-fast, transform $transition-fast;
+  transition: color 150ms ease, transform 120ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
     color: $color-favorite;
-    transform: scale(1.1);
+    transform: scale(1.12);
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 
   &.active {
@@ -96,6 +104,7 @@
 
     svg {
       fill: $color-favorite;
+      animation: heartPop 280ms cubic-bezier(0.16, 1, 0.3, 1);
     }
   }
 
@@ -106,6 +115,12 @@
   }
 
   @include focus-ring;
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
 }
 
 .badgePosition {

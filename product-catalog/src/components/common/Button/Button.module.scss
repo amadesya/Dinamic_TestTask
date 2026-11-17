@@ -10,12 +10,21 @@
   font-weight: $font-weight-medium;
   border-radius: $radius-md;
   border: 1px solid transparent;
-  transition: all $transition-fast;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast,
+    transform 100ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow $transition-fast;
   user-select: none;
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
   @include focus-ring;
+
+  &:active:not(:disabled) {
+    transform: scale(0.975);
+  }
 
   &:disabled,
   &.disabled {

@@ -48,7 +48,7 @@ export const ProductDetailsPage: React.FC = () => {
         <StatePlaceholder
           variant="not-found"
           title="Некорректный ID товара"
-          description="Идентификатор товара в адресной строке должен быть положительным числом."
+          description="ID товара в адресной строке должен быть положительным числом."
           actionText="Вернуться в каталог"
           onAction={() => navigate('/')}
         />

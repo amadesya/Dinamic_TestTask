@@ -19,31 +19,26 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  border-radius: $radius-full;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-md;
 
   svg {
-    width: 22px;
-    height: 22px;
+    width: 32px;
+    height: 32px;
   }
 
   &.empty {
-    background-color: $color-bg-secondary;
-    color: $color-text-secondary;
+    color: $color-text-muted;
   }
 
   &.error {
-    background-color: $color-error-light;
     color: $color-error;
   }
 
   &.notFound {
-    background-color: $color-bg-secondary;
-    color: $color-text-primary;
+    color: $color-text-muted;
   }
 
   &.loading {
-    background-color: $color-bg-secondary;
     color: $color-primary;
   }
 }
