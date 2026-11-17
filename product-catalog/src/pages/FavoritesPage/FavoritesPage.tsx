@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './FavoritesPage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
@@ -12,6 +12,7 @@ import { ProductCard } from '../../components/Product/ProductCard';
 import { Skeleton } from '../../components/common/Skeleton';
 import { StatePlaceholder } from '../../components/common/StatePlaceholder';
 import { Button } from '../../components/common/Button';
+import { Modal } from '../../components/common/Modal';
 
 interface FavoriteCardItemProps {
   id: number;
@@ -56,11 +57,19 @@ export const FavoritesPage: React.FC = () => {
   const favoriteIds = useAppSelector(selectFavoriteIds);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
-  const handleClear = () => {
-    if (window.confirm('Вы действительно хотите очистить весь список избранного?')) {
-      dispatch(clearFavorites());
-    }
+  const handleOpenConfirm = () => {
+    setIsConfirmOpen(true);
+  };
+
+  const handleCloseConfirm = () => {
+    setIsConfirmOpen(false);
+  };
+
+  const handleConfirmClear = () => {
+    dispatch(clearFavorites());
+    setIsConfirmOpen(false);
   };
 
   if (favoriteIds.length === 0) {
@@ -91,7 +100,7 @@ export const FavoritesPage: React.FC = () => {
           <button
             type="button"
             className={styles.clearButton}
-            onClick={handleClear}
+            onClick={handleOpenConfirm}
           >
             Очистить список
           </button>
@@ -103,6 +112,23 @@ export const FavoritesPage: React.FC = () => {
           <FavoriteCardItem key={id} id={id} />
         ))}
       </div>
+
+      <Modal
+        isOpen={isConfirmOpen}
+        onClose={handleCloseConfirm}
+        title="Очистить избранное?"
+        description="Все товары будут удалены из списка избранного. Это действие нельзя отменить."
+        footer={
+          <>
+            <Button variant="secondary" onClick={handleCloseConfirm}>
+              Отмена
+            </Button>
+            <Button variant="primary" onClick={handleConfirmClear}>
+              Очистить
+            </Button>
+          </>
+        }
+      />
     </div>
   );
 };

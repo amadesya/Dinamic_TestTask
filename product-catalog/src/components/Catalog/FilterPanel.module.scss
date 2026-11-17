@@ -126,18 +126,34 @@
 
 .dateInput {
   width: 100%;
-  height: 36px;
-  padding: 0 $spacing-xs;
+  height: 40px;
+  padding: 0 $spacing-sm;
   border: 1px solid $color-border;
-  border-radius: $radius-sm;
-  font-size: 11.5px;
+  border-radius: $radius-md;
+  font-family: inherit;
+  font-size: $font-size-xs;
   color: $color-text-primary;
   background-color: $color-bg-surface;
-  transition: border-color $transition-fast;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    border-color: $color-border-hover;
+  }
 
   &:focus {
     border-color: $color-border-focus;
+    box-shadow: 0 0 0 1px $color-border-focus;
     outline: none;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity $transition-fast;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

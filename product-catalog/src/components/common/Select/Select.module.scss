@@ -25,22 +25,35 @@
   background-color: $color-bg-surface;
   border: 1px solid $color-border;
   border-radius: $radius-md;
-  transition: all $transition-fast;
+  transition: border-color $transition-fast, box-shadow $transition-fast, background-color $transition-fast;
 
   &:hover:not(.disabled) {
     border-color: $color-border-hover;
   }
 
+  &.hasValue {
+    border-color: $color-border-hover;
+
+    .select {
+      font-weight: $font-weight-medium;
+    }
+  }
+
   &.focused {
     border-color: $color-border-focus;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 0 0 1px $color-border-focus;
+
+    .arrow {
+      color: $color-text-primary;
+      transform: rotate(180deg);
+    }
   }
 
   &.hasError {
     border-color: $color-error;
 
     &.focused {
-      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+      box-shadow: 0 0 0 1px $color-error;
     }
   }
 
@@ -58,13 +71,36 @@
   border: none;
   background: transparent;
   color: $color-text-primary;
+  font-family: inherit;
   font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
   outline: none;
   appearance: none;
   cursor: pointer;
 
   &:disabled {
     cursor: not-allowed;
+    color: $color-text-muted;
+  }
+
+  option {
+    background-color: $color-bg-surface;
+    color: $color-text-primary;
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    padding: $spacing-sm $spacing-md;
+
+    &:checked,
+    &[selected] {
+      font-weight: $font-weight-semibold;
+      background-color: $color-bg-tertiary;
+      color: $color-primary;
+    }
+
+    &:disabled {
+      color: $color-text-muted;
+    }
   }
 }
 
@@ -76,7 +112,7 @@
   align-items: center;
   justify-content: center;
   color: $color-text-muted;
-  transition: transform $transition-fast;
+  transition: transform $transition-fast, color $transition-fast;
 
   svg {
     width: 16px;
@@ -92,17 +128,21 @@
   justify-content: center;
   width: 20px;
   height: 20px;
+  border: none;
   border-radius: $radius-full;
   background-color: $color-bg-tertiary;
   color: $color-text-secondary;
   font-size: 14px;
   line-height: 1;
+  cursor: pointer;
   transition: all $transition-fast;
 
   &:hover {
     background-color: $color-border-hover;
     color: $color-text-primary;
   }
+
+  @include focus-ring;
 }
 
 .errorMessage {

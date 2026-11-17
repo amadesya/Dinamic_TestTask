@@ -59,6 +59,7 @@ export const Select: React.FC<SelectProps> = ({
         className={`
           ${styles.selectWrapper}
           ${isFocused ? styles.focused : ''}
+          ${hasValue ? styles.hasValue : ''}
           ${error ? styles.hasError : ''}
           ${disabled ? styles.disabled : ''}
         `}
@@ -71,6 +72,7 @@ export const Select: React.FC<SelectProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           aria-invalid={Boolean(error)}
+          aria-label={!label ? (placeholder || props['aria-label'] || 'Выбор значения') : undefined}
           {...props}
         >
           {placeholder && <option value="">{placeholder}</option>}

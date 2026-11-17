@@ -4,3 +4,4 @@ export * from './Select';
 export * from './Badge';
 export * from './Skeleton';
 export * from './StatePlaceholder';
+export * from './Modal';

@@ -33,14 +33,14 @@
 
   &.focused {
     border-color: $color-border-focus;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 0 0 1px $color-border-focus;
   }
 
   &.hasError {
     border-color: $color-error;
 
     &.focused {
-      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+      box-shadow: 0 0 0 1px $color-error;
     }
   }
 
