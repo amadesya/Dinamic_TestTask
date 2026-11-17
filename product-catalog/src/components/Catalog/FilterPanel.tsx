@@ -93,11 +93,26 @@ export const FilterPanel: React.FC = () => {
 
       {/* Date filters */}
       <div className={styles.section}>
-        <span className={styles.sectionTitle}>Дата изменения</span>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionTitle}>Период обновления</span>
+          {(filters.modifiedAfter || filters.modifiedBefore) && (
+            <button
+              type="button"
+              className={styles.sectionResetBtn}
+              onClick={() => {
+                setFilter('modifiedAfter', '');
+                setFilter('modifiedBefore', '');
+              }}
+              title="Сбросить даты"
+            >
+              Сбросить
+            </button>
+          )}
+        </div>
         <div className={styles.dateRange}>
           <div className={styles.dateRow}>
             <label className={styles.dateLabel} htmlFor="date-after">
-              После даты
+              От
             </label>
             <input
               id="date-after"
@@ -110,7 +125,7 @@ export const FilterPanel: React.FC = () => {
 
           <div className={styles.dateRow}>
             <label className={styles.dateLabel} htmlFor="date-before">
-              До даты
+              До
             </label>
             <input
               id="date-before"

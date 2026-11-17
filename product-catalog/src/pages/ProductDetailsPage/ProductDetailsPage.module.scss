@@ -42,7 +42,7 @@
   gap: $spacing-3xl;
   align-items: flex-start;
 
-  @include tablet-down {
+  @media (max-width: 820px) {
     grid-template-columns: 1fr;
     gap: $spacing-xl;
   }

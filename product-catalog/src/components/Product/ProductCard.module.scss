@@ -69,31 +69,30 @@
   }
 }
 
+// Clean retail favorite icon (no floating white disc)
 .favoriteBtn {
   position: absolute;
-  top: $spacing-sm;
-  right: $spacing-sm;
+  top: 10px;
+  right: 10px;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: $radius-full;
-  background-color: rgba(255, 255, 255, 0.85);
-  color: $color-text-secondary;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  color: rgba(17, 24, 39, 0.4);
   border: none;
   cursor: pointer;
-  transition: color $transition-fast, background-color $transition-fast;
+  transition: color $transition-fast, transform $transition-fast;
 
   &:hover {
     color: $color-favorite;
-    background-color: #ffffff;
+    transform: scale(1.1);
   }
 
   &.active {
     color: $color-favorite;
-    background-color: #ffffff;
 
     svg {
       fill: $color-favorite;
@@ -101,8 +100,9 @@
   }
 
   svg {
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.9));
   }
 
   @include focus-ring;
@@ -110,22 +110,22 @@
 
 .badgePosition {
   position: absolute;
-  top: $spacing-sm;
-  left: $spacing-sm;
+  top: 10px;
+  left: 10px;
   z-index: 2;
 }
 
 .discountBadge {
   display: inline-flex;
   align-items: center;
-  padding: 3px 6px;
+  padding: 2px 6px;
   border-radius: $radius-xs;
   background-color: $color-primary;
   color: $color-text-white;
-  font-size: $font-size-2xs;
+  font-size: 11px;
   font-weight: $font-weight-semibold;
-  letter-spacing: 0;
-  line-height: 1;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
 .content {
@@ -133,11 +133,11 @@
   flex-direction: column;
   flex: 1;
   padding: $spacing-md;
-  gap: 4px;
+  gap: 5px;
 }
 
 .category {
-  font-size: $font-size-2xs;
+  font-size: 11.5px;
   font-weight: $font-weight-medium;
   color: $color-text-muted;
   text-transform: capitalize;
@@ -145,7 +145,7 @@
 }
 
 .title {
-  font-size: $font-size-sm;
+  font-size: $font-size-base;
   font-weight: $font-weight-medium;
   color: $color-text-primary;
   line-height: $line-height-snug;
@@ -162,7 +162,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: $spacing-xs;
+  margin-top: 4px;
   font-size: $font-size-xs;
 }
 
@@ -195,24 +195,23 @@
   }
 }
 
+// Clean unified price row without an artificial horizontal dividing line
 .priceRow {
   display: flex;
   align-items: baseline;
   gap: $spacing-sm;
-  margin-top: $spacing-xs;
-  padding-top: $spacing-xs;
-  border-top: 1px solid $color-border;
+  margin-top: 4px;
 }
 
 .price {
-  font-size: $font-size-md;
+  font-size: 16px;
   font-weight: $font-weight-bold;
   color: $color-text-primary;
   letter-spacing: $letter-spacing-tight;
 }
 
 .oldPrice {
-  font-size: $font-size-xs;
+  font-size: 12.5px;
   color: $color-text-muted;
   text-decoration: line-through;
 }

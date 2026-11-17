@@ -7,42 +7,39 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: $spacing-5xl $spacing-xl;
-  max-width: 440px;
+  padding: $spacing-4xl $spacing-xl;
+  max-width: 420px;
   margin: 0 auto;
-  min-height: 320px;
+  min-height: 280px;
 }
 
 .iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   border-radius: $radius-full;
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-lg;
 
   svg {
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
   }
 
   &.empty {
     background-color: $color-bg-secondary;
     color: $color-text-secondary;
-    border: 1px solid $color-border;
   }
 
   &.error {
     background-color: $color-error-light;
     color: $color-error;
-    border: 1px solid rgba(185, 28, 28, 0.15);
   }
 
   &.notFound {
     background-color: $color-bg-secondary;
     color: $color-text-primary;
-    border: 1px solid $color-border;
   }
 
   &.loading {
@@ -52,8 +49,8 @@
 }
 
 .title {
-  font-size: $font-size-xl;
-  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
   letter-spacing: $letter-spacing-tight;
   color: $color-text-primary;
   margin-bottom: $spacing-xs;
@@ -62,8 +59,8 @@
 .description {
   font-size: $font-size-sm;
   color: $color-text-secondary;
-  line-height: $line-height-relaxed;
-  margin-bottom: $spacing-2xl;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-xl;
 }
 
 .actions {

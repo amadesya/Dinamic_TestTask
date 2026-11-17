@@ -1,11 +1,11 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-// Desktop / Tablet Sidebar Panel
+// Desktop Sidebar Panel (visible on desktop >= 900px)
 .panel {
   display: none;
 
-  @include tablet-up {
+  @media (min-width: 900px) {
     display: flex;
     flex-direction: column;
     gap: $spacing-xl;
@@ -81,6 +81,12 @@
   }
 }
 
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .sectionTitle {
   font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
@@ -88,16 +94,29 @@
   letter-spacing: 0;
 }
 
+.sectionResetBtn {
+  font-size: $font-size-2xs;
+  color: $color-text-muted;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-error;
+    text-decoration: underline;
+  }
+}
+
 .dateRange {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xs;
 }
 
 .dateRow {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .dateLabel {
@@ -107,11 +126,11 @@
 
 .dateInput {
   width: 100%;
-  height: 38px;
-  padding: 0 $spacing-sm;
+  height: 36px;
+  padding: 0 $spacing-xs;
   border: 1px solid $color-border;
   border-radius: $radius-sm;
-  font-size: $font-size-xs;
+  font-size: 11.5px;
   color: $color-text-primary;
   background-color: $color-bg-surface;
   transition: border-color $transition-fast;
@@ -122,14 +141,14 @@
   }
 }
 
-// Mobile Trigger Button (visible only on mobile)
+// Mobile Trigger Button (visible when sidebar is hidden, < 900px)
 .mobileTrigger {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: $spacing-xs;
   width: 100%;
-  height: 42px;
+  height: 40px;
   padding: 0 $spacing-md;
   background-color: $color-bg-surface;
   border: 1px solid $color-border;
@@ -145,7 +164,7 @@
     height: 18px;
   }
 
-  @include tablet-up {
+  @media (min-width: 900px) {
     display: none;
   }
 }
@@ -154,7 +173,7 @@
 .mobileDrawerOverlay {
   display: none;
 
-  @include mobile {
+  @media (max-width: 899.98px) {
     display: block;
     position: fixed;
     inset: 0;
@@ -174,7 +193,7 @@
 .mobileDrawer {
   display: none;
 
-  @include mobile {
+  @media (max-width: 899.98px) {
     display: flex;
     flex-direction: column;
     position: fixed;
