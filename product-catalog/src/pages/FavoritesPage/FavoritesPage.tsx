@@ -25,10 +25,10 @@ const FavoriteCardItem: React.FC<FavoriteCardItemProps> = ({ id }) => {
     return (
       <div className={styles.skeletonCard}>
         <Skeleton variant="rectangular" height={220} />
-        <div style={{ padding: 16, display: 'flex', flexDirection: 'column', gap: 8, flex: 1 }}>
+        <div className={styles.skeletonBody}>
           <Skeleton variant="text" width="40%" height={14} />
           <Skeleton variant="text" width="90%" height={20} />
-          <Skeleton variant="text" width="50%" height={24} style={{ marginTop: 'auto' }} />
+          <Skeleton variant="text" width="50%" height={24} className={styles.skeletonBottom} />
         </div>
       </div>
     );
@@ -69,7 +69,7 @@ export const FavoritesPage: React.FC = () => {
         <StatePlaceholder
           variant="empty"
           title="В избранном пока ничего нет"
-          description="Добавляйте понравившиеся товары в каталогe, нажимая на иконку сердечка, чтобы сохранить их."
+          description="Добавляйте товары в каталоге, нажимая на иконку сердечка."
           actionText="Перейти в каталог"
           onAction={() => navigate('/')}
         />
@@ -106,5 +106,3 @@ export const FavoritesPage: React.FC = () => {
     </div>
   );
 };
-
-export default FavoritesPage;

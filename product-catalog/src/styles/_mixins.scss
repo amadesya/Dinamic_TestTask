@@ -1,11 +1,6 @@
 @use 'variables' as *;
 
-// Responsive Breakpoints
-$breakpoint-mobile: 767.98px;
-$breakpoint-tablet: 1023.98px;
-$breakpoint-desktop: 1024px;
-$breakpoint-desktop-xl: 1280px;
-
+// Responsive Breakpoint Mixins
 @mixin mobile {
   @media (max-width: #{$breakpoint-mobile}) {
     @content;
@@ -38,6 +33,24 @@ $breakpoint-desktop-xl: 1280px;
 
 @mixin desktop-xl {
   @media (min-width: #{$breakpoint-desktop-xl}) {
+    @content;
+  }
+}
+
+@mixin catalog-sidebar-desktop {
+  @media (min-width: #{$breakpoint-catalog-sidebar}) {
+    @content;
+  }
+}
+
+@mixin catalog-sidebar-drawer {
+  @media (max-width: #{$breakpoint-catalog-sidebar - 0.02px}) {
+    @content;
+  }
+}
+
+@mixin details-stack {
+  @media (max-width: #{$breakpoint-details-stack}) {
     @content;
   }
 }

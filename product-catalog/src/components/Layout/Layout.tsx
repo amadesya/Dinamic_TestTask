@@ -6,8 +6,11 @@ import styles from './Layout.module.scss';
 export const Layout: React.FC = () => {
   return (
     <div className={styles.wrapper}>
+      <a href="#main-content" className={styles.skipLink}>
+        Перейти к основному контенту
+      </a>
       <Header />
-      <main className={styles.main}>
+      <main id="main-content" className={styles.main} tabIndex={-1}>
         <Outlet />
       </main>
       <footer className={styles.footer}>

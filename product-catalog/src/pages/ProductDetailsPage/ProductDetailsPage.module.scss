@@ -42,7 +42,7 @@
   gap: $spacing-3xl;
   align-items: flex-start;
 
-  @media (max-width: 820px) {
+  @include details-stack {
     grid-template-columns: 1fr;
     gap: $spacing-xl;
   }
@@ -169,6 +169,11 @@
 
 .favoriteButton {
   flex: 1;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 .descriptionSection {
@@ -278,4 +283,10 @@
   @include tablet-down {
     grid-template-columns: 1fr;
   }
+}
+
+.skeletonContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
 }

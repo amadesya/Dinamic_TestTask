@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import styles from './Select.module.scss';
 
 export interface SelectOption {
@@ -17,6 +17,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
 }
 
 export const Select: React.FC<SelectProps> = ({
+  id,
   label,
   error,
   options,
@@ -31,6 +32,8 @@ export const Select: React.FC<SelectProps> = ({
   onBlur,
   ...props
 }) => {
+  const generatedId = useId();
+  const selectId = id || generatedId;
   const [isFocused, setIsFocused] = useState(false);
 
   const hasValue = value !== undefined && value !== '' && value !== null;
@@ -47,7 +50,11 @@ export const Select: React.FC<SelectProps> = ({
 
   return (
     <div className={`${styles.container} ${fullWidth ? styles.fullWidth : ''} ${className}`}>
-      {label && <label className={styles.label}>{label}</label>}
+      {label && (
+        <label htmlFor={selectId} className={styles.label}>
+          {label}
+        </label>
+      )}
       <div
         className={`
           ${styles.selectWrapper}
@@ -57,11 +64,13 @@ export const Select: React.FC<SelectProps> = ({
         `}
       >
         <select
+          id={selectId}
           className={styles.select}
           disabled={disabled}
           value={value}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          aria-invalid={Boolean(error)}
           {...props}
         >
           {placeholder && <option value="">{placeholder}</option>}

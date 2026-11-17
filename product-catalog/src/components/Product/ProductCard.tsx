@@ -4,6 +4,7 @@ import styles from './ProductCard.module.scss';
 import type { Product } from '../../types/product';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { toggleFavorite, selectIsFavorite } from '../../features/favorites/favoritesSlice';
+import { calculateDiscountPricing } from '../../utils/pricing';
 
 export interface ProductCardProps {
   product: Product;
@@ -21,10 +22,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     dispatch(toggleFavorite(product.id));
   };
 
-  const discount = product.discountPercentage ? Math.round(product.discountPercentage) : 0;
-  const originalPrice = discount > 0 && product.price
-    ? (product.price / (1 - product.discountPercentage / 100)).toFixed(2)
-    : null;
+  const { discount, originalPrice } = calculateDiscountPricing(
+    product.price,
+    product.discountPercentage
+  );
 
   return (
     <article className={styles.card}>

@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './NotFoundPage.module.scss';
 import { StatePlaceholder } from '../../components/common/StatePlaceholder';
 
 export const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{ padding: '48px 0' }}>
+    <div className={styles.container}>
       <StatePlaceholder
         variant="not-found"
         title="404 — Страница не найдена"
@@ -17,5 +18,3 @@ export const NotFoundPage: React.FC = () => {
     </div>
   );
 };
-
-export default NotFoundPage;

@@ -16,7 +16,7 @@
   padding-bottom: $spacing-lg;
   border-bottom: 1px solid $color-border;
 
-  @media (max-width: 899.98px) {
+  @include catalog-sidebar-drawer {
     flex-direction: column;
     align-items: stretch;
     gap: $spacing-md;
@@ -61,7 +61,7 @@
   flex: 1;
   max-width: 440px;
 
-  @media (max-width: 899.98px) {
+  @include catalog-sidebar-drawer {
     max-width: 100%;
   }
 }
@@ -72,7 +72,7 @@
   gap: $spacing-2xl;
   align-items: flex-start;
 
-  @media (max-width: 899.98px) {
+  @include catalog-sidebar-drawer {
     grid-template-columns: 1fr;
     gap: $spacing-lg;
   }
@@ -83,7 +83,7 @@
   top: 76px;
   align-self: flex-start;
 
-  @media (max-width: 899.98px) {
+  @include catalog-sidebar-drawer {
     position: static;
   }
 }

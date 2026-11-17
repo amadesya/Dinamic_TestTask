@@ -198,5 +198,3 @@ export const CatalogPage: React.FC = () => {
     </div>
   );
 };
-
-export default CatalogPage;

@@ -142,7 +142,6 @@ export const FilterPanel: React.FC = () => {
 
   return (
     <>
-      {/* Mobile Drawer Trigger (visible ONLY on mobile < 768px) */}
       <button
         type="button"
         className={styles.mobileTrigger}
@@ -158,7 +157,6 @@ export const FilterPanel: React.FC = () => {
         )}
       </button>
 
-      {/* Desktop / Tablet Panel (visible ONLY on >= 768px) */}
       <div className={styles.panel}>
         <div className={styles.header}>
           <div className={styles.title}>
@@ -190,7 +188,6 @@ export const FilterPanel: React.FC = () => {
         )}
       </div>
 
-      {/* Mobile Slide-over Drawer (functional ONLY on mobile) */}
       <div
         className={`${styles.mobileDrawerOverlay} ${isMobileOpen ? styles.isOpen : ''}`}
         onClick={() => setIsMobileOpen(false)}
@@ -217,7 +214,7 @@ export const FilterPanel: React.FC = () => {
           </button>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <div className={styles.drawerBody}>
           {filterFields}
         </div>
 

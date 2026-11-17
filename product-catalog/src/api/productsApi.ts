@@ -127,11 +127,25 @@ export const productsApi = createApi({
       invalidatesTags: [{ type: 'Product', id: 'LIST' }],
     }),
 
-    // Mutation: Update existing product
+    // Mutation: Update existing product (PUT)
     updateProduct: builder.mutation<Product, UpdateProductInput>({
       query: ({ id, data }) => ({
         url: `/products/${id}`,
         method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: data,
+      }),
+      invalidatesTags: (_result, _error, { id }) => [
+        { type: 'Product', id },
+        { type: 'Product', id: 'LIST' },
+      ],
+    }),
+
+    // Mutation: Partially update existing product (PATCH)
+    patchProduct: builder.mutation<Product, UpdateProductInput>({
+      query: ({ id, data }) => ({
+        url: `/products/${id}`,
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: data,
       }),
@@ -168,5 +182,6 @@ export const {
   useLazyGetProductsByCategoryQuery,
   useAddProductMutation,
   useUpdateProductMutation,
+  usePatchProductMutation,
   useDeleteProductMutation,
 } = productsApi;

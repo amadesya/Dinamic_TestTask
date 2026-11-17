@@ -43,7 +43,7 @@ export const Button: React.FC<ButtonProps> = ({
       ) : (
         startIcon && <span className={styles.startIcon}>{startIcon}</span>
       )}
-      <span>{children}</span>
+      {children !== undefined && children !== null && <span>{children}</span>}
       {!isLoading && endIcon && <span className={styles.endIcon}>{endIcon}</span>}
     </button>
   );

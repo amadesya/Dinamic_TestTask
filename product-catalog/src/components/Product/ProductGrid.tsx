@@ -32,7 +32,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
                 <Skeleton variant="text" width="35%" height={12} />
                 <Skeleton variant="text" width="90%" height={18} />
                 <Skeleton variant="text" width="60%" height={18} />
-                <Skeleton variant="text" width="40%" height={22} style={{ marginTop: 'auto' }} />
+                <Skeleton variant="text" width="40%" height={22} className={styles.skeletonPrice} />
               </div>
             </div>
           ))}

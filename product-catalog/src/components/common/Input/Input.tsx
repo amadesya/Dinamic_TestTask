@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import styles from './Input.module.scss';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -13,6 +13,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 export const Input: React.FC<InputProps> = ({
+  id,
   label,
   error,
   helperText,
@@ -28,6 +29,8 @@ export const Input: React.FC<InputProps> = ({
   onBlur,
   ...props
 }) => {
+  const generatedId = useId();
+  const inputId = id || generatedId;
   const [isFocused, setIsFocused] = useState(false);
 
   const hasValue = value !== undefined && value !== '';
@@ -44,7 +47,11 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className={`${styles.container} ${fullWidth ? styles.fullWidth : ''} ${className}`}>
-      {label && <label className={styles.label}>{label}</label>}
+      {label && (
+        <label htmlFor={inputId} className={styles.label}>
+          {label}
+        </label>
+      )}
       <div
         className={`
           ${styles.inputWrapper}
@@ -55,11 +62,13 @@ export const Input: React.FC<InputProps> = ({
       >
         {startIcon && <div className={styles.startIcon}>{startIcon}</div>}
         <input
+          id={inputId}
           className={styles.input}
           disabled={disabled}
           value={value}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          aria-invalid={Boolean(error)}
           {...props}
         />
         {clearable && hasValue && !disabled && onClear && (

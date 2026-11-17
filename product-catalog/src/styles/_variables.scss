@@ -9,7 +9,7 @@ $color-bg-elevated: #ffffff;
 // High-Contrast Typography
 $color-text-primary: #111827;   // Deep black ink
 $color-text-secondary: #4b5563; // Neutral body text
-$color-text-muted: #8b929e;     // Subtle meta text
+$color-text-muted: #646c79;     // Subtle meta text (WCAG AA compliant >= 4.5:1)
 $color-text-white: #ffffff;
 
 // Hairline Architectural Dividers (no heavy borders)
@@ -122,5 +122,11 @@ $z-drawer: 500;
 $z-modal: 1000;
 $z-tooltip: 1100;
 
-// Layout Grid Container
+// Layout Grid & Breakpoints
 $container-max-width: 1440px;
+$breakpoint-mobile: 767.98px;
+$breakpoint-details-stack: 820px;
+$breakpoint-catalog-sidebar: 900px;
+$breakpoint-tablet: 1023.98px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-xl: 1280px;

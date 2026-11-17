@@ -22,8 +22,6 @@
     box-shadow: $shadow-card-hover;
     transform: translateY(-2px);
   }
-
-  @include focus-ring;
 }
 
 .imageWrapper {
@@ -166,11 +164,14 @@
   line-height: $line-height-snug;
   @include line-clamp(2);
   margin-bottom: auto;
+  border-radius: $radius-xs;
   transition: color $transition-fast;
 
   &:hover {
     color: $color-text-secondary;
   }
+
+  @include focus-ring;
 }
 
 .metaRow {

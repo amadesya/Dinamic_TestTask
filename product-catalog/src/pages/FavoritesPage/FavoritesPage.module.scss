@@ -96,6 +96,18 @@
   height: 380px;
 }
 
+.skeletonBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: $spacing-lg;
+  gap: $spacing-sm;
+}
+
+.skeletonBottom {
+  margin-top: auto;
+}
+
 .errorCard {
   display: flex;
   flex-direction: column;

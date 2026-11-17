@@ -9,6 +9,7 @@ import { Skeleton } from '../../components/common/Skeleton';
 import { StatePlaceholder } from '../../components/common/StatePlaceholder';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { toggleFavorite, selectIsFavorite } from '../../features/favorites/favoritesSlice';
+import { calculateDiscountPricing } from '../../utils/pricing';
 
 export const ProductDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -64,7 +65,7 @@ export const ProductDetailsPage: React.FC = () => {
         </div>
         <div className={styles.skeletonPage}>
           <Skeleton variant="rectangular" height={400} borderRadius={16} />
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div className={styles.skeletonContent}>
             <Skeleton variant="text" width={100} height={16} />
             <Skeleton variant="text" width="90%" height={36} />
             <Skeleton variant="text" width={140} height={24} />
@@ -93,10 +94,10 @@ export const ProductDetailsPage: React.FC = () => {
     );
   }
 
-  const discount = product.discountPercentage ? Math.round(product.discountPercentage) : 0;
-  const originalPrice = discount > 0 && product.price
-    ? (product.price / (1 - product.discountPercentage / 100)).toFixed(2)
-    : null;
+  const { discount, originalPrice } = calculateDiscountPricing(
+    product.price,
+    product.discountPercentage
+  );
 
   const galleryImages = (product.images && product.images.length > 0)
     ? product.images
@@ -197,7 +198,6 @@ export const ProductDetailsPage: React.FC = () => {
                   fill={isFavorite ? 'currentColor' : 'none'}
                   stroke="currentColor"
                   strokeWidth="2"
-                  style={{ width: 22, height: 22 }}
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                 </svg>
@@ -290,7 +290,6 @@ export const ProductDetailsPage: React.FC = () => {
                       viewBox="0 0 24 24"
                       fill={i < rev.rating ? '#f59e0b' : '#e2e8f0'}
                       stroke="none"
-                      style={{ width: 14, height: 14 }}
                     >
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
@@ -305,5 +304,3 @@ export const ProductDetailsPage: React.FC = () => {
     </div>
   );
 };
-
-export default ProductDetailsPage;
